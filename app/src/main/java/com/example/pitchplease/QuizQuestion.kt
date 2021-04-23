@@ -10,8 +10,12 @@ class QuizQuestion : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_question)
     }
 
-    fun createAnswerButtons() {
-        val container = findViewById<Button>(R.id.button_exit)
-        container.appe
+    fun setAnswerButtons() {
+        val buttons = arrayOf(
+            findViewById<Button>(R.id.answer_button_quiz_question_1),
+            findViewById<Button>(R.id.answer_button_quiz_question_2),
+            findViewById<Button>(R.id.answer_button_quiz_question_3),
+            findViewById<Button>(R.id.answer_button_quiz_question_4)
+        )
     }
 }

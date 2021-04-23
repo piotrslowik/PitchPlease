@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
+        android:id="@+id/answers_container_quiz_question"
         android:layout_width="230dp"
         android:layout_height="240dp"
         android:layout_marginTop="400dp"
