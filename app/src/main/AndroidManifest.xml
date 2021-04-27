@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PitchPlease">
+        <activity android:name=".Personalization"></activity>
         <activity android:name=".QuizFinish" />
         <activity android:name=".AnswerWrong" />
         <activity android:name=".AnswerCorrect" />
