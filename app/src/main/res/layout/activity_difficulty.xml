@@ -6,6 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".Difficulty">
 
+    <TextView
+        android:id="@+id/header_difficulty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:background="@color/purple_500"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="POZIOM TRUDNOŚCI"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/logo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="L O G O"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="62dp" />
+
     <Button
         android:id="@+id/button_main_menu_difficulty"
         style="@style/Widget.MaterialComponents.Button"
@@ -66,13 +93,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/logo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="L O G O"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="94dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
