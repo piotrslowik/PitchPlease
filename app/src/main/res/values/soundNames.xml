@@ -21,4 +21,10 @@
         <item>Dur 7</item>
         <item>Moll 7</item>
     </string-array>
+
+    <string-array name="Difficulties">
+        <item>Łatwy</item>
+        <item>Średni</item>
+        <item>Trudny</item>
+    </string-array>
 </resources>
