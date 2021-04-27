@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PitchPlease">
-        <activity android:name=".Sandbox"></activity>
+        <activity android:name=".QuizFinish" />
+        <activity android:name=".AnswerWrong" />
+        <activity android:name=".AnswerCorrect" />
+        <activity android:name=".QuizQuestion" />
+        <activity android:name=".Difficulty" />
+        <activity android:name=".Sandbox" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
