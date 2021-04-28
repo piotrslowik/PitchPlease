@@ -14,11 +14,15 @@ class Difficulty : AppCompatActivity() {
 
     fun startQuiz(view: View) {
         val btn: Button = view as Button
-        val difficulty: String = btn.id.toString()
+        val difficulty: String = btn.id.toString().toLowerCase()
         val intent = Intent(this, QuizQuestion::class.java)
-        intent.apply {
-            putExtra(difficulty, difficulty)
+        val difficultyLevel: Int
+        difficultyLevel = when (difficulty) {
+            "łatwy" -> 0
+            "średni" -> 1
+            else -> 2
         }
+        intent.putExtra("difficulty", difficultyLevel)
         startActivity(intent)
     }
 
