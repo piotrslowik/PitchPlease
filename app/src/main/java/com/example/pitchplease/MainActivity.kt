@@ -32,6 +32,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun exitApp(view: View) {
-        finish()
+        finishAffinity()
     }
 }

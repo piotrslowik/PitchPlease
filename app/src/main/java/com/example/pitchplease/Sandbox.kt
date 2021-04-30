@@ -11,7 +11,6 @@ class Sandbox : AppCompatActivity() {
     }
 
     fun onClickedBack(view: View) {
-        super.onBackPressed()
-        moveTaskToBack(true);
+        finish()
     }
 }

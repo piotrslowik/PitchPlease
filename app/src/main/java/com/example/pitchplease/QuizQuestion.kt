@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import raw.Chord
 import java.lang.System.currentTimeMillis
 import kotlin.random.Random
 
@@ -15,35 +14,36 @@ class QuizQuestion : AppCompatActivity() {
     private var timeStart = currentTimeMillis()
     private var timeTotal: Long = 0
     private var correctAnswers: Int = 0
-    private var questionNumber: Int = 1
+    private var questionNumber: Int = 0
     private var difficulty: Int = 0
     private var chord: Chord = Chord("", "")
     private var scoreTotal: Long = 0
     private var player: MediaPlayer = MediaPlayer()
     private var questionStarted: Boolean = false
-    private var chords = resources.getStringArray(R.array.SoundNames).toMutableList()
+    private var chords = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz_question)
-        timeTotal = intent.getIntExtra("timeTotal", 0).toLong()
+        chords = resources.getStringArray(R.array.SoundNames).toMutableList()
+        timeTotal = intent.getLongExtra("timeTotal", 0)
         correctAnswers = intent.getIntExtra("correctAnswers", 0)
-        questionNumber = intent.getIntExtra("questionNumber", 1)
-        difficulty = intent.getIntExtra("difficulty", 1)
-        scoreTotal = intent.getIntExtra("scoreTotal", 0).toLong()
+        questionNumber = intent.getIntExtra("questionNumber", 0)
+        difficulty = intent.getIntExtra("difficulty", 0)
+        scoreTotal = intent.getLongExtra("scoreTotal", 0)
         chord = getChord()
         player.release()
 
+        setContentView(R.layout.activity_quiz_question)
         setSound()
         setAnswerButtons()
     }
 
     private fun getChord(): Chord {
         val chordIndex = Random.nextInt(0, chords.size)
-        chords.removeAt(chordIndex)
         val chord = chords[chordIndex]
+        chords.removeAt(chordIndex)
         val scales = getScales()
-        val scale = scales[Random.nextInt(0, chords.size)]
+        val scale = scales[Random.nextInt(0, scales.size)]
         return Chord(chord, scale)
     }
 
@@ -56,7 +56,7 @@ class QuizQuestion : AppCompatActivity() {
     }
 
     private fun setSound() {
-        val soundId: Int = resources.getIdentifier(chord.soundFileName(), "raw", null)
+        val soundId: Int = resources.getIdentifier(chord.soundFileName(), "raw", packageName)
         player = MediaPlayer.create(this, soundId)
     }
 
@@ -89,21 +89,19 @@ class QuizQuestion : AppCompatActivity() {
 
     private fun nextActivity(timeTotal: Long, correctAnswers: Int, score: Long, isCorrect: Boolean) {
         player.release()
-        val intent: Intent = if (questionNumber == 10)
-            Intent(this, QuizFinish::class.java)
-        else {
-            if (isCorrect)
-                Intent(this, AnswerCorrect::class.java)
-            else
-                Intent(this, AnswerWrong::class.java)
-        }
+        val intent: Intent = if (isCorrect)
+            Intent(this, AnswerCorrect::class.java)
+        else
+            Intent(this, AnswerWrong::class.java)
         intent.putExtra("timeTotal", timeTotal)
-        intent.putExtra("correctAnswers", correctAnswers + 1)
+        intent.putExtra("correctAnswers", correctAnswers)
         intent.putExtra("score", score)
-        intent.putExtra("questionNumber", questionNumber++)
+        intent.putExtra("questionNumber", questionNumber + 1)
         intent.putExtra("difficulty", difficulty)
         intent.putExtra("scoreTotal", scoreTotal)
+        intent.putExtra("chord", chord.fullName())
         startActivity(intent)
+        finish()
     }
 
     private fun setAnswerButtons() {

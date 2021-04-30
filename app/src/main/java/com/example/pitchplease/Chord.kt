@@ -1,4 +1,4 @@
-package raw
+package com.example.pitchplease
 
 class Chord(name: String, scale: String) {
     private val name = name
@@ -7,8 +7,8 @@ class Chord(name: String, scale: String) {
     fun soundFileName(): String {
         val chordName = this.name.replace("#", "is")
         val scaleName = this.scale.replace(" ", "")
-        return if (scaleName == "dur") chordName
-        else "${chordName}_${scaleName}"
+        return if (scaleName == "dur") chordName.toLowerCase()
+        else "${chordName}_${scaleName}".toLowerCase()
     }
 
     fun fullName(): String {

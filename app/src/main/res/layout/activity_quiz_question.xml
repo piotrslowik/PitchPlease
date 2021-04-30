@@ -10,7 +10,7 @@
         android:id="@+id/sound_button_quiz"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="120dp"
         android:onClick="onQuestionClicked"
         android:padding="50dp"
         app:icon="@android:drawable/ic_lock_silent_mode_off"
@@ -21,9 +21,9 @@
 
     <TableLayout
         android:id="@+id/answers_container_quiz_question"
-        android:layout_width="230dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="400dp"
+        android:layout_width="280dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="370dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,8 +34,8 @@
 
             <Button
                 android:id="@+id/answer_button_quiz_question_1"
-                android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_width="120dp"
+                android:layout_height="130dp"
                 android:text="X"
                 android:textSize="28dp"
                 app:cornerRadius="30dp" />
@@ -47,8 +47,8 @@
 
             <Button
                 android:id="@+id/answer_button_quiz_question_2"
-                android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_width="120dp"
+                android:layout_height="130dp"
                 android:text="X"
                 android:textSize="28dp"
                 app:cornerRadius="30dp" />
@@ -64,8 +64,8 @@
 
             <Button
                 android:id="@+id/answer_button_quiz_question_3"
-                android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_width="120dp"
+                android:layout_height="130dp"
                 android:text="X#"
                 android:textSize="28dp"
                 app:cornerRadius="30dp" />
@@ -77,8 +77,8 @@
 
             <Button
                 android:id="@+id/answer_button_quiz_question_4"
-                android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_width="120dp"
+                android:layout_height="130dp"
                 android:text="X#"
                 android:textSize="28dp"
                 app:cornerRadius="30dp" />

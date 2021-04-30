@@ -11,7 +11,6 @@ class Personalization : AppCompatActivity() {
     }
 
     fun onClickedBack(view: View) {
-        super.onBackPressed()
-        moveTaskToBack(true);
+        finish()
     }
 }
