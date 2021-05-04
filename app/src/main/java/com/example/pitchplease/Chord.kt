@@ -7,12 +7,12 @@ class Chord(name: String, scale: String) {
     fun soundFileName(): String {
         val chordName = this.name.replace("#", "is")
         val scaleName = this.scale.replace(" ", "")
-        return if (scaleName == "dur") chordName.toLowerCase()
-        else "${chordName}_${scaleName}".toLowerCase()
+        return if (scaleName == "Dur") chordName.toLowerCase()
+        else "${chordName}_${scaleName}".toLowerCase().replace("dur", "")
     }
 
     fun fullName(): String {
-        return if (this.scale == "dur") this.name
-        else "${this.name} ${this.scale}"
+        return if (this.scale == "Dur") this.name
+        else "${this.name} ${this.scale}".replace(" Dur", "")
     }
 }
