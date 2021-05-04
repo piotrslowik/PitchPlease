@@ -48,10 +48,11 @@ class QuizQuestion : AppCompatActivity() {
     }
 
     private fun getScales(): Array<String> {
+        val scales: Array<String> = resources.getStringArray(R.array.ScaleNames)
         return when (difficulty) {
-            0 -> arrayOf("moll")
-            1 -> arrayOf("dur", "moll")
-            else -> arrayOf("dur", "moll", "7", "moll 7")
+            0 -> arrayOf(scales[1])
+            1 -> arrayOf(scales[0], scales[1])
+            else -> scales
         }
     }
 
