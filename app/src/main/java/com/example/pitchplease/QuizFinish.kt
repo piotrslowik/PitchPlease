@@ -1,10 +1,12 @@
 package com.example.pitchplease
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 
 class QuizFinish : AppCompatActivity() {
     private var timeTotal: Long = 0
@@ -19,11 +21,12 @@ class QuizFinish : AppCompatActivity() {
         correctAnswers = intent.getIntExtra("correctAnswers", 0)
         difficulty = intent.getIntExtra("difficulty", 1)
         scoreTotal = intent.getLongExtra("scoreTotal", 0)
-        setResultiew()
+        setResultView()
         setScoreView()
+        saveToDB()
     }
 
-    private fun setResultiew() {
+    private fun setResultView() {
         val box: TextView = findViewById<TextView>(R.id.result_quiz_finish)
         box.text = "WYNIK: ${correctAnswers}/10"
     }
@@ -31,6 +34,16 @@ class QuizFinish : AppCompatActivity() {
     private fun setScoreView() {
         val box: TextView = findViewById<TextView>(R.id.points_quiz_finish)
         box.text = "${scoreTotal} PUNKTÓW"
+    }
+
+    private fun saveToDB() {
+        val db = DBHelper(applicationContext).readableDatabase
+        val cv = ContentValues()
+        cv.put("Difficulty", difficulty)
+        cv.put("TimeTotal", timeTotal)
+        cv.put("CorrectAnswers", correctAnswers)
+        cv.put("Score", scoreTotal)
+        db.insert("Results", null, cv)
     }
 
     fun startQuiz(view: View) {
