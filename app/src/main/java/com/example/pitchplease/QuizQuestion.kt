@@ -36,6 +36,7 @@ class QuizQuestion : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_question)
         setSound()
         setAnswerButtons()
+        enableButtons(false)
     }
 
     private fun getChord(): Chord {
@@ -66,6 +67,14 @@ class QuizQuestion : AppCompatActivity() {
         if (!questionStarted) {
             questionStarted = true
             timeStart = currentTimeMillis()
+            enableButtons(true)
+        }
+    }
+
+    private fun enableButtons(enabled: Boolean) {
+        val buttons: Array<Button> = getButtons()
+        for (i in 0..3) {
+            buttons[i].isClickable = enabled
         }
     }
 
@@ -105,13 +114,17 @@ class QuizQuestion : AppCompatActivity() {
         finish()
     }
 
-    private fun setAnswerButtons() {
-        val buttons: Array<Button> = arrayOf(
-            findViewById<Button>(R.id.answer_button_quiz_question_1),
-            findViewById<Button>(R.id.answer_button_quiz_question_2),
-            findViewById<Button>(R.id.answer_button_quiz_question_3),
-            findViewById<Button>(R.id.answer_button_quiz_question_4)
+    private fun getButtons(): Array<Button> {
+        return arrayOf(
+                findViewById<Button>(R.id.answer_button_quiz_question_1),
+                findViewById<Button>(R.id.answer_button_quiz_question_2),
+                findViewById<Button>(R.id.answer_button_quiz_question_3),
+                findViewById<Button>(R.id.answer_button_quiz_question_4)
         )
+    }
+
+    private fun setAnswerButtons() {
+        val buttons: Array<Button> = getButtons()
         val correctAnswerIndex: Int = Random.nextInt(0, 4);
         val wrongChords: Array<Chord> = arrayOf(getChord(), getChord(), getChord())
         var wrongI: Int = 0
