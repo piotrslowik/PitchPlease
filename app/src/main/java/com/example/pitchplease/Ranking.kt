@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,8 +18,21 @@ class Ranking : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ranking)
+        setSpinnerEvents()
+    }
 
-        loadFromDB(0)
+    private fun setSpinnerEvents() {
+        val spinner = findViewById<View>(R.id.spinner_level_ranking) as Spinner
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View, position: Int, id: Long) {
+                loadFromDB(position)
+            }
+
+            override fun onNothingSelected(adapterView: AdapterView<*>?) {
+                return
+            }
+        }
     }
 
     private fun loadFromDB(difficulty: Int) {
@@ -25,7 +40,7 @@ class Ranking : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this@Ranking)
         recycler.adapter = RecyclerAdapter()
         val db = DBHelper(applicationContext).readableDatabase
-        val selectQuery = "SELECT * FROM Results WHERE Difficulty=$difficulty"
+        val selectQuery = "SELECT * FROM Results WHERE Difficulty=$difficulty ORDER BY Score DESC"
         var cursor: Cursor? = null
         try {
             cursor = db.rawQuery(selectQuery, null)
@@ -48,7 +63,7 @@ class Ranking : AppCompatActivity() {
         if (cursor.moveToFirst()) {
             do {
                 timeTotal = cursor.getInt(cursor.getColumnIndex("TimeTotal"))
-                correctAnswers = cursor.getInt(cursor.getColumnIndex("CorrectAnswers")) / 1000
+                correctAnswers = cursor.getInt(cursor.getColumnIndex("CorrectAnswers"))
                 scoreTotal = cursor.getInt(cursor.getColumnIndex("Score"))
                 val item = RankingItem(correctAnswers, timeTotal, scoreTotal)
                 items.add(item)

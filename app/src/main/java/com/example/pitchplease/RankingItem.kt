@@ -2,7 +2,7 @@ package com.example.pitchplease
 
 class RankingItem(answers: Int, time: Int, score: Int) {
     val correctAnswers = answers
-    val timeTotal = time
+    private val timeTotal = time
     val scoreTotal = score
 
     fun time(): String {
