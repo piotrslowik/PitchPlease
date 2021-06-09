@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PitchPlease">
-        <activity android:name=".Ranking"></activity>
+        <activity android:name=".Animations"></activity>
+        <activity android:name=".Instrument" />
+        <activity android:name=".Language" />
+        <activity android:name=".Ranking" />
         <activity android:name=".Personalization" />
         <activity android:name=".QuizFinish" />
         <activity android:name=".AnswerWrong" />

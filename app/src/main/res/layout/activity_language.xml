@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Personalization">
+    tools:context=".Language">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/button_return_personalization"
+        android:id="@+id/button_return_language"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -33,59 +33,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_animations_personalization"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="450dp"
-        android:layout_marginEnd="86dp"
-        android:onClick="goToAnimations"
-        android:text="animacje"
-        app:cornerRadius="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_instrument_personalization"
+        android:id="@+id/button_english_language"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="85dp"
         android:layout_marginTop="350dp"
         android:layout_marginEnd="86dp"
-        android:onClick="goToInstrument"
-        android:text="instrument"
+        android:onClick="setLanguageEnglish"
+        android:text="angielski"
         app:cornerRadius="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_lang_personalization"
+        android:id="@+id/button_polish_language"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="85dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="86dp"
-        android:onClick="goToLanguage"
-        android:text="język"
+        android:onClick="setLanguagePolish"
+        android:text="polski"
         app:cornerRadius="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/header_personalization"
+        android:id="@+id/header_language"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:background="@color/purple_500"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="PERSONALIZACJA"
+        android:text="JĘZYK"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
