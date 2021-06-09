@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import layout.AppProperties
 
 class Language : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,10 +17,12 @@ class Language : AppCompatActivity() {
     }
 
     fun setLanguagePolish(view: View) {
+        AppProperties.lang = "pl"
         setLanguage("polski")
     }
 
     fun setLanguageEnglish(view: View) {
+        AppProperties.lang = "en"
         setLanguage("angielski")
     }
 

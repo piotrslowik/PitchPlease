@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import layout.AppProperties
 
 class Animations : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,10 +17,12 @@ class Animations : AppCompatActivity() {
     }
 
     fun setAnimationsOn(view: View) {
+        AppProperties.animations = true;
         setAnimations("Animacje włączone")
     }
 
     fun setAnimationsOff(view: View) {
+        AppProperties.animations = false;
         setAnimations("Animacje wyłączone")
     }
 
