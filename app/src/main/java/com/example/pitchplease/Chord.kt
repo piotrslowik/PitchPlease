@@ -1,5 +1,7 @@
 package com.example.pitchplease
 
+import java.util.*
+
 class Chord(name: String, scale: String) {
     private val name = name
     private val scale = scale
@@ -7,8 +9,11 @@ class Chord(name: String, scale: String) {
     fun soundFileName(): String {
         val chordName = this.name.replace("#", "is")
         val scaleName = this.scale.replace(" ", "")
-        return if (scaleName == "Dur") chordName.toLowerCase()
-        else "${chordName}_${scaleName}".toLowerCase().replace("dur", "")
+        val fullName: String =
+            if (scaleName == "Dur") chordName.toLowerCase(Locale.ROOT)
+            else "${chordName}_${scaleName}".toLowerCase(Locale.ROOT).replace("dur", "")
+        val instrument = AppProperties.instrument
+        return fullName + "__$instrument";
     }
 
     fun fullName(): String {
