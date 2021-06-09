@@ -1,4 +1,4 @@
-package layout
+package com.example.pitchplease
 
 object AppProperties {
     var instrument = "g"
