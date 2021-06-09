@@ -7,15 +7,15 @@
     android:background="@drawable/background"
     tools:context=".Sandbox">
 
-    <EditText
-        android:id="@+id/logo_sandbox"
+    <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="L O G O"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="94dp" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
     <Spinner
         android:id="@+id/spinner_scale_playground"
